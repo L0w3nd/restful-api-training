@@ -1,1 +1,44 @@
-{}
+openapi: 3.0.1
+info:
+  title: MyAPI
+  version: '1.0'
+  description: some api for stuff
+  termsOfService: https://www.crsp.org
+  contact:
+    name: Matt
+  license:
+    name: license
+paths:
+  /users:
+    summary: user level operations
+    description: create and update users in the database
+    get:
+      summary: returns all users
+      description: fetch all users from the database
+      operationId: users_get
+      responses:
+        '200':
+          description: Default error sample response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "qwerty"
+                  username:
+                    type: string
+                    example: "bear"
+                  score:
+                    type: string
+                    example: 55
+                  active:
+                    type: boolean
+                    example: true
+      tags:
+        - users
+servers:
+  - url: https://my-json-server.typicode.com/bearc0025/api
+    variables: {}
+    description: my fake server
